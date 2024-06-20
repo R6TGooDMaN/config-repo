@@ -1,6 +1,8 @@
 spring:
   application:
     name: product-service
+  profiles:
+    active: dev
   datasource:
     url: jdbc:postgresql://localhost:5432/products
     username: postgres

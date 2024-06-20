@@ -1,8 +1,10 @@
 spring:
   application:
     name: inventory-service
+  profiles:
+    active: dev
   datasource:
-    url: jdbc:postgresql://localhost:5432/products
+    url: jdbc:postgresql://localhost:5432/inventory
     username: postgres
     password: 12345679
 eureka:
