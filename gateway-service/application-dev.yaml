@@ -13,7 +13,7 @@ zuul:
       url: http://localhost:8081
     product-service:
       product-service:
-        path: /api/**
+        path: /api/product
         service-id: product-service
     inventory:
       path:
