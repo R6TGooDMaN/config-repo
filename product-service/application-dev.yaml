@@ -7,7 +7,7 @@ spring:
     password: 12345679
     eureka:
       instance:
-        prefer-ip-address: false
+        prefer-ip-address: true
       client:
         register-with-eureka: true
         fetch-registry: true
