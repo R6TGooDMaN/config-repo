@@ -15,6 +15,14 @@ spring:
     url: jdbc:postgresql://localhost:5432/microservice-shop-database
     username: postgres
     password: 12345679
+eureka:
+  instance:
+    prefer-ip-address: false
+    client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http:/localhost:8761/eureka/
 server:
   port: 8081
 kafka:
