@@ -1,15 +1,54 @@
-pring:
-  application:
-    name: user-service
+config:
+    import: optional:configserver:http://localhost:8888
+  cloud:
+    config:
+      import-check:
+        enabled: false
+      fail-fast: true
+  jpa:
+    properties:
+      hibernate:
+        default_schema: product-schemas
+  
   datasource:
-    url: jdbc:postgresql://localhost:5432/users
+    url: jdbc:postgresql://localhost:5432/microservice-shop-database
     username: postgres
     password: 12345679
-    eureka:
-      instance:
-        prefer-ip-address: true
+    driver-class-name: org.postgresql.Driver
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8888/realms/services-dev-realm
       client:
-        register-with-eureka: true
-        fetch-registry: true
-        service-url:
-          defaultZone: http:/localhost:8761/eureka/
+        registration:
+          keycloak:
+            client-id:
+              user-service
+            authorization-grant-type:
+              authorization_code
+            scope:
+              openid
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8888/realms/services-dev-realm
+            user-name-attribute: preferred_username
+server:
+  port: 8082
+
+keycloak:
+  auth-server-url: http://localhost:8888/auth
+  realm: services-dev-realm
+  resource: user-service
+  credentials:
+    secret: s3wcVNRzWt4SJfOJhVkwvted3VzoVYn5
+  admin-username: admin
+  admin-password: admin
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http:/localhost:8761/eureka/
