@@ -4,6 +4,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/microservice-shop-database
     username: postgres
     password: 12345679
+  jpa:
+    properties:
+      hibernate:
+        default_schema: product-schemas
 flyway:
   user: postgres
   password: 12345679
