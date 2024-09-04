@@ -1,0 +1,8 @@
+  flyway:
+    user: postgres
+    password: 12345679
+    schemas: product-schemas
+    url: jdbc:postgresql://localhost:5432/microservice-shop-database
+    enabled: true
+    default-schema: product-schemas
+    baseline-on-migrate: true
