@@ -3,8 +3,6 @@ spring:
     name: discovery-service
 server:
   port: 8761
-  profiles:
-    active: dev
 eureka:
   client:
     register-with-eureka: false
